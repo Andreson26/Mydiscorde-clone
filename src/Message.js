@@ -1,18 +1,17 @@
 import React from 'react'
 import { Avatar } from "@material-ui/core";
-import profilePicture from './images/pictureProfile.jpg';
 import './message.css'
 
-function Message() {
+function Message({ timestamp, user, message}) {
   return (
     <div className='message'>
-        <Avatar src={profilePicture} />
+        <Avatar src={user.photo} />
         <div className='message__info'>
             <h4>
-                acfortunate
-                <span className='message__timeStamp'>this is a time stamp</span>
+                {user.displayName}
+                <span className='message__timeStamp'>{new Date(timestamp?.toDate()).toUTCString()}</span>
             </h4>
-            <p>This is a message</p>
+            <p>{message}</p>
         </div>
 
     </div>
